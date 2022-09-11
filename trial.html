@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trial</title>
+</head>
+<body>
+	<div id="form">
+		<h1>Please Fill the form</h1>
+		<form onsubmit="return val()" action="welcome.html" method="POST">
+			<table>
+				<tr><td>Email: </td><td><input type="text" name="mail" id='mail' placeholder="Email"></td></tr>
+				<tr><td></td><td><span id="email"></span></td></tr>
+				
+				<tr><td colspan="2"><button type="submit">Submit</button></td></tr>
+			</table>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	let mail=document.getElementById('mail');
+	let email=document.getElementById('email');
+
+	function val()
+	{
+		email.innerText="* Noooooooooooo";
+		console.log("Anil Krish");
+		return false;
+	}
+	
+	console.log(8);
+</script>
+</html>
