@@ -1,4 +1,4 @@
-<?php 
+	<?php 
 session_start();
 //echo session_id();
 //print_r($_FILES);
@@ -34,11 +34,11 @@ function saveImage($image)
 	$result=mysqli_query($connection, $query);
 	if($result)
 	{
-		echo "File Uploaded";
+		//echo "File Uploaded";
 	}
 	else
 	{
-		echo "File Not Uploaded";
+		////echo "File Not Uploaded";
 		echo "error: ".mysqli_error($connection)."<br>";
 	}
 }

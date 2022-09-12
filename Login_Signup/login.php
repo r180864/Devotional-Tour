@@ -85,6 +85,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="/../Project/css/mystyle.css">
 	<link rel="icon" type="x-icon/image" href="/../Project/images/logo.png">
@@ -111,8 +112,9 @@
 					</div>
 
 					<div class="form-floating mb-2">
-						<input type="text" name="pwd" class="form-control" id="pwd" placeholder="">
+						<input type="password" name="pwd" class="form-control" id="pwd" placeholder="">
 						<label for="#pwd" class="form-label">Password</label>
+						<button type="button" class="btn btn-success mt-3" id="btn">Show Password</button>
 					</div>
 					<button type="submit" value="submit" class="btn btn-primary form-control my-3">Log In</button>
 				</form>
@@ -126,4 +128,26 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var btn=$("#btn");
+		btn.click(function() {
+			var pwd=$("#pwd");
+			
+			if(pwd.attr('type')==='password')
+			{
+				//console.log(pwd.attr('type'));
+				pwd.attr('type', 'text');
+				btn.html('Hide Password');
+				//console.log(btn.innerText);
+			}
+			else
+			{
+				//console.log(pwd.attr('type'));
+				pwd.attr('type', 'password');
+				btn.html('Show Password');
+			}
+		});
+	});
+</script>
 </html>

@@ -24,21 +24,14 @@ if(!isset($_SESSION['email']))
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row justify-content-center bg-info">
+		<div class="row justify-content-center">
         	<?php require('C:\xampp\htdocs\Project\navbar.php');?>
-        	<h1>This is Home Page</h1>
-			<h2>Welcome Mr. <?php if(isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></h2>
-
+        	
+			<marquee class="bg-danger p-3" width="50%" direction="right"><h3>Welcome <?php if(isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></h3></marquee>
 			
 			<?php require('C:\xampp\htdocs\Project\carousel.php'); ?>
 	
 			<?php require('C:\xampp\htdocs\Project\cards.php'); ?>
-			<div class="col-2 mt-5">
-				<a href="/../Project/.travel/travel.php"><button class="btn btn-danger">Travel</button></a>
-			</div>
-			<div class="col-2 mt-5">
-				<a href="/../Project/.guide/guide.php"><button class="btn btn-danger">Guide</button></a>
-			</div>
 		</div>
 	</div>
 </body>

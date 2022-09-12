@@ -11,7 +11,7 @@
 <body>
 	<div class="container bg-info my-5">
 		<div class="row justify-content-center bg-warning mb-5">
-			<div class="col-5 bg-primary my-5">
+			<div class="col-5 bg-primary my-5 text-center">
 				
 			
 				<?php 
