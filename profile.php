@@ -7,12 +7,15 @@ if(!isset($_SESSION['email']))
 {
 	header("Location:Login_Signup/login.php");
 }
-
 if(isset($_POST['submit']))
 {
-	if(getimagesize($_FILES['image']['tmp_name'])== FALSE)
+	$name=$_POST['name'];
+	$pwd=$_POST['pwd'];
+	$ph=$_POST['ph'];
+	if(isset($_FILES['image']['tmp_name']))
 	{
-		echo "Please Select an Image";
+		//echo "Please Select an Image";
+		$image=null;
 	}
 	else
 	{
@@ -20,27 +23,25 @@ if(isset($_POST['submit']))
 		$name=addslashes($_FILES['image']['name']);
 		$image=file_get_contents($image);
 		$image=base64_encode($image);
-		saveImage($image);
+		
 	}
+	update($name, $pwd, $ph, $image);
 	
 }
 
-function saveImage($image)
+function Update($name, $pwd, $ph, $image)
 {
 	require('DataBase/mydb.php');
 	$email=$_SESSION['email'];
 	$_SESSION['image']=$image;
+	$query="UPDATE USER SET name='$name' WHERE email='$email';";
+	$result=mysqli_query($connection, $query);
+	$query="UPDATE USER SET password='$pwd' WHERE email='$email';";
+	$result=mysqli_query($connection, $query);
+	$query="UPDATE USER SET ph_number='$ph' WHERE email='$email';";
+	$result=mysqli_query($connection, $query);
 	$query="UPDATE USER SET image='$image' WHERE email='$email';";
 	$result=mysqli_query($connection, $query);
-	if($result)
-	{
-		//echo "File Uploaded";
-	}
-	else
-	{
-		//echo "File Not Uploaded";
-		//echo "error: ".mysqli_error($connection)."<br>";
-	}
 }
 
 ?>
@@ -51,6 +52,7 @@ function saveImage($image)
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<link rel="stylesheet" type="text/css" href="css/mystyle.css">
   	<link rel="icon" type="x-icon/image" href="/../Project/images/logo.png">
 	<title>Home</title>
@@ -84,12 +86,71 @@ function saveImage($image)
 					<th>Email: </th>
 					<td><?php echo $_SESSION['email']; ?></td>
 				</tr>
+				<tr>
+					<td colspan="2"><button id="btn" class="btn btn-warning my-2">Update Profile</button></td>
+				</tr>
 			</table>
-			<form action="#" method="POST" enctype="multipart/form-data">
+		</div>
+		<div class="col-4" id="update">
+			<!--<form action="#" method="POST" enctype="multipart/form-data">
 				<input type="file" name="image">
 				<button type="submit" name="submit">Submit</button>
-			</form>
+			</form>-->
+			<form onsubmit="return validate()" action="#" method="POST" enctype="multipart/form-data" class="form-floating mx-lg-5">
+					<p class="text-danger text-center"><?php
+							if(isset($error))
+							{
+								echo $error;
+							} 
+						?>
+					</p>
+
+					<div class="form-floating mb-2">
+						<input type="text" name="name" class="form-control" id="name" value="<?php $_SESSION['user']; ?>" placeholder>
+						<span id="mname" class="text-danger"></span>
+						<label for="#name" class="form-label">Change Your Name</label>
+					</div>
+
+					<div class="form-floating mb-2">
+						<input type="password" name="pwd" class="form-control" id="pwd" value="<?php $_SESSION['pwd']; ?>" placeholder="">
+						<span id="mpwd" class="text-danger"></span>
+						<label for="#pwd" class="form-label">Change Password</label>
+					</div>
+
+
+					<div class="form-floating mb-2">
+						<input type="text" name="ph" class="form-control" id="ph" value="<?php $_SESSION['ph']; ?>" placeholder="">
+						<span id="mph" class="text-danger"></span>
+						<label for="#ph" class="form-label">Change Phone Number</label>
+					</div>
+
+					<div class="form-floating mb-2">
+						<input type="file" name="image">
+					</div>
+
+					<button type="submit" name="submit" value="submit" class="btn btn-success">Update</button>
+					<a class="btn btn-danger ms-5" id="cancel">Cancel</a>
+				</form>
+
 		</div>
 	</div>
 </body>
+<script src="/../Project/js/validate_update.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#update").hide();
+
+		$("#btn").click(function () {
+			$("#btn").hide();
+			$("#update").show();
+
+		});
+
+		$("#cancel").click(function() {
+			$("#btn").show();
+			$("#update").hide();
+		});
+
+	});
+</script>
 </html>

@@ -21,3 +21,8 @@
 .outer{
     overflow: hidden;
 }
+html {
+    border: blue;
+    border-width: 5px;
+    border-style: solid;
+}
