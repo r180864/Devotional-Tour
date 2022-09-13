@@ -23,13 +23,9 @@ $_SESSION['active']='Puri';
 			</div>
 
 			<?php require('C:\xampp\htdocs\Project\carousel.php'); ?>
-
-			<div class="col-2">
-				<a href="/../Project/.travel/travel.php"><button class="btn btn-danger">Travel</button></a>
-			</div>
-			<div class="col-2">
-				<a href="/../Project/.travel/guide.php"><button class="btn btn-danger">Guide</button></a>
-			</div>
+		</div>
+		<div class="row justify-content-center mt-5">
+			<?php require('C:\xampp\htdocs\Project\.travel\button.php');?>
 		</div>
 	</div>
 </body>

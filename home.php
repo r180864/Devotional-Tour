@@ -4,7 +4,7 @@ session_start();
 $_SESSION['active']='Home';
 if(!isset($_SESSION['email']))
 {
-	echo "NOTTT    SETTTT";
+	//echo "NOTTT    SETTTT";
 	//header("Location:Login_Signup/login.php");
 }
 

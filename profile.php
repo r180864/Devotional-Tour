@@ -38,8 +38,8 @@ function saveImage($image)
 	}
 	else
 	{
-		////echo "File Not Uploaded";
-		echo "error: ".mysqli_error($connection)."<br>";
+		//echo "File Not Uploaded";
+		//echo "error: ".mysqli_error($connection)."<br>";
 	}
 }
 

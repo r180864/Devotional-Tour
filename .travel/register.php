@@ -9,6 +9,7 @@
   	<script src=
 "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js">
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -16,7 +17,7 @@
 </html>
 	<div class="container">
 		<div class="row bg-warning mt-5">
-			<div class="col-5 bg-primary my-5 m-auto text-center p-3" id='makepdf'>
+			<div class="col-5 bg-primary my-5 m-auto text-center p-3">
 				<?php 
 					session_start();
 					//echo $_POST['guide'];
@@ -29,6 +30,7 @@
 					insert_visitor($visitor, $place);
 					book_visit($guide, $visitor, $place);
 					echo "<a href='/../Project/home.php' class='btn btn-secondary my-3'>Go to Home</a>";
+					echo "<button class='btn btn-success ms-5' id='button'>Download PDF</button>";
 					require('C:\xampp\htdocs\Project\Database\mydb.php');
 
 					function insert_visitor($visitor, $place)
@@ -50,6 +52,8 @@
 								//echo "error1: ".mysqli_error($connection)."<br>";
 								//echo "Failed1";
 							}
+							$query="UPDATE VISITOR SET visit_date=CURDATE() WHERE visitor_id='$visitor';";
+							$result=mysqli_query($connection, $query);
 						}
 
 						
@@ -85,39 +89,58 @@
 					?>
 			</div>
 		</div>
+			<div class="text-center row" id="makepdf">
+				<h1><i>Devotional</i> <b>AK</b></h1>
+				<div class="m-auto col-6">
+					<?php 
+					require('C:\xampp\htdocs\Project\Database\mydb.php');
+					$query="SELECT U.id, U.name, U.ph_number, V.visit_place, V.visit_date FROM USER U JOIN VISITOR V JOIN TRAVEL T WHERE U.id=V.visitor_id AND V.visitor_id=T.visitor_id AND T.visitor_id=$visitor;";
+					$result=mysqli_query($connection, $query);
+					if($result)
+					{
+						if(mysqli_num_rows($result)==1)
+						{
+							echo "<table style='text-align:left;' border='3'>";
+							while($row=mysqli_fetch_assoc($result))
+							{
+								echo "<tr><td><h4>Visitor ID: </h4></td><td><h4>".$row['id']."</h4></td></tr>";
+								echo "<tr><td><h4>Visitor Name: </h4></td><td><h4>".$row['name']."</h4></td></tr>";
+								echo "<tr><td><h4>Visitor Mobile: </h4></td><td><h4>".$row['ph_number']."</h4></td></tr>";
+								echo "<tr><td><h4>Visit Place: </h4></td><td><h4>".$row['visit_place']."</h4></td></tr>";
+								echo "<tr><td><h4>Visit Date: </h4></td><td><h4>".$row['visit_date']."</h4></td></tr>";
+							}
+							//echo "</table>";
+						}
+					}
+
+					require('C:\xampp\htdocs\Project\Database\mydb.php');
+					$query="SELECT U.id, U.name, U.ph_number FROM USER U JOIN GUIDE G JOIN TRAVEL T WHERE U.id=G.guide_id AND G.guide_id=T.guide_id AND T.guide_id=$guide;";
+					$result=mysqli_query($connection, $query);
+					if($result)
+					{
+						if(mysqli_num_rows($result)==1)
+						{
+							//echo "<table style='text-align:left' border='1'>";
+							while($row=mysqli_fetch_assoc($result))
+							{
+								echo "<tr><td><h4>Guide ID: <h4></td><td><h4>".$row['id']."</h4></td></tr>";
+								echo "<tr><td><h4>Guide Name: <h4></td><td><h4>".$row['name']."</h4></td></tr>";
+								echo "<tr><td><h4>Guide Mobile: <h4></td><td><h4>".$row['ph_number']."</h4></td></tr>";
+								//echo "<tr><td>Visit Place: </td><td>".$row['visit_place']."</td></tr>";
+								//echo "<tr><td>Visit Date: </td><td>".$row['visit_date']."</td></tr>";
+							}
+							echo "</table>";
+						}
+					}
+				?>
+				
+			</div>
+		</div>
 	</div>
-	<button class="btn btn-warning" id="button">Download PDF</button>
-	<!-- <script type="text/javascript">
-		var button=getElementById("btn");
-		var makepdf=getElementById("pdf");
-
-		button.addEventListener('click', function() {
-			html2pdf().from(makepdf.save());
-		});
-	</script>-->
-
-	<div class="container">
-        <button id="button">Generate PDF</button>
-        <div class="card" id="makepdf">
-            <h2>Welcome to GeeksforGeeks</h2>
-            <ul>
-                <li>
-                    <h4>
-                        We are going to generate a pdf 
-                        from the area inside the box
-                    </h4>
-                </li>
-                <li>
-                    <h4>
-                        This is an example of generating 
-                        pdf from HTML during runtime
-                    </h4>
-                </li>
-            </ul>
-        </div>
-    </div>
   
     <script>
+
+
         var button = document.getElementById("button");
         var makepdf = document.getElementById("makepdf");
   
