@@ -1,14 +1,29 @@
 -- To Create DataBase
-CREATE DATABASE SACRED_PLACES;
+CREATE DATABASE PLACE;
 
-USE SACRED_PLACES;
+USE PLACE;
 
 -- To Create the Table Customer
-CREATE TABLE CUSTOMER(c_id INT PRIMARY KEY AUTO_INCREMENT,
-						c_name VARCHAR(20),
-                        c_email VARCHAR(30) NOT NULL UNIQUE,
-                        c_password VARCHAR(20) NOT NULL
+CREATE TABLE USER(id INT PRIMARY KEY AUTO_INCREMENT,
+						name VARCHAR(20) NOT NULL,
+                        email VARCHAR(30) NOT NULL UNIQUE,
+                        password VARCHAR(20) NOT NULL,
+                        image LONGBLOB DEFAULT NULL,
+                        ph_number INT NOT NULL
 					);
                     
-INSERT INTO CUSTOMER VALUES(1, "anil@gmail.com", "Anil123");
-SELECT * FROM CUSTOMER;
+CREATE TABLE GUIDE(guide_id INT REFERENCES USER(id),
+					guide_place VARCHAR(20) NOT NULL,
+					PRIMARY KEY(guide_id)
+					);
+
+CREATE TABLE VISITOR(visitor_id INT REFERENCES USER(id),
+					visit_place VARCHAR(20) NOT NULL,
+					visit_date DATE NOT NULL,
+					PRIMARY KEY(visitor_id)
+					);
+
+CREATE TABLE TRAVEL(guide_id INT REFERENCES USER(id),
+					visitor_id INT REFERENCES USER(id),
+					PRIMARY KEY(guide_id, visitor_id)
+					);

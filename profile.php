@@ -2,6 +2,12 @@
 session_start();
 //echo session_id();
 //print_r($_FILES);
+//print_r($_POST);
+//echo "<br>";
+//print_r($_SESSION);
+$name=$_SESSION['name'];
+$pwd=$_SESSION['pwd'];
+$ph=$_SESSION['ph'];
 $_SESSION['active']='Profile';
 if(!isset($_SESSION['email']))
 {
@@ -12,21 +18,21 @@ if(isset($_POST['submit']))
 	$name=$_POST['name'];
 	$pwd=$_POST['pwd'];
 	$ph=$_POST['ph'];
-	if(isset($_FILES['image']['tmp_name']))
+	if($_FILES['image']['tmp_name'])
 	{
 		//echo "Please Select an Image";
-		$image=null;
+		//$image=$_['image'];
+		$image=addslashes($_FILES['image']['tmp_name']);
+		//$name=addslashes($_FILES['image']['name']);
+		$image=file_get_contents($image);
+		$image=base64_encode($image);
 	}
 	else
 	{
-		$image=addslashes($_FILES['image']['tmp_name']);
-		$name=addslashes($_FILES['image']['name']);
-		$image=file_get_contents($image);
-		$image=base64_encode($image);
+		$image=$_SESSION['image'];
 		
 	}
-	update($name, $pwd, $ph, $image);
-	
+	update($name, $pwd, $ph, $image);	
 }
 
 function Update($name, $pwd, $ph, $image)
@@ -34,6 +40,16 @@ function Update($name, $pwd, $ph, $image)
 	require('DataBase/mydb.php');
 	$email=$_SESSION['email'];
 	$_SESSION['image']=$image;
+
+	//echo "<h3>$name</h3>";
+	//echo "<h3>$pwd</h3>";
+	//echo "<h3>$ph</h3>";
+	//echo "<h3>$image</h3>";
+
+	$_SESSION['name']=$name;
+	$_SESSION['pwd']=$pwd;
+	$_SESSION['ph']=$ph;
+	//$_SESSION['image']=$im;
 	$query="UPDATE USER SET name='$name' WHERE email='$email';";
 	$result=mysqli_query($connection, $query);
 	$query="UPDATE USER SET password='$pwd' WHERE email='$email';";
@@ -62,7 +78,7 @@ function Update($name, $pwd, $ph, $image)
 		<div class="row">
 			<?php require('C:\xampp\htdocs\Project\navbar.php');
 			?>
-			<div class="col-4 mt-4">
+			<div class="col-4 my-4 shadow" id="myprofile">
 				<?php 
 					if($_SESSION['imgsrc'])
 					{
@@ -91,7 +107,7 @@ function Update($name, $pwd, $ph, $image)
 				</tr>
 			</table>
 		</div>
-		<div class="col-4" id="update">
+		<div class="col-4 ms-5 shadow" id="update">
 			<!--<form action="#" method="POST" enctype="multipart/form-data">
 				<input type="file" name="image">
 				<button type="submit" name="submit">Submit</button>
@@ -106,20 +122,20 @@ function Update($name, $pwd, $ph, $image)
 					</p>
 
 					<div class="form-floating mb-2">
-						<input type="text" name="name" class="form-control" id="name" value="<?php $_SESSION['user']; ?>" placeholder>
+						<input type="text" name="name" class="form-control" id="name" value='<?php echo $_SESSION['name']; ?>' placeholder>
 						<span id="mname" class="text-danger"></span>
 						<label for="#name" class="form-label">Change Your Name</label>
 					</div>
 
 					<div class="form-floating mb-2">
-						<input type="password" name="pwd" class="form-control" id="pwd" value="<?php $_SESSION['pwd']; ?>" placeholder="">
+						<input type="password" name="pwd" class="form-control" id="pwd" value="<?php echo $_SESSION['pwd']; ?>" placeholder="">
 						<span id="mpwd" class="text-danger"></span>
 						<label for="#pwd" class="form-label">Change Password</label>
 					</div>
 
 
 					<div class="form-floating mb-2">
-						<input type="text" name="ph" class="form-control" id="ph" value="<?php $_SESSION['ph']; ?>" placeholder="">
+						<input type="text" name="ph" class="form-control" id="ph" value="<?php echo $_SESSION['ph']; ?>" placeholder="">
 						<span id="mph" class="text-danger"></span>
 						<label for="#ph" class="form-label">Change Phone Number</label>
 					</div>

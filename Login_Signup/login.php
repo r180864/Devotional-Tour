@@ -42,9 +42,9 @@
 						$_SESSION['pwd']=$row['pwd'];
 						$_SESSION['user']=$row['id'];
 						$_SESSION['ph']=$row['ph_number'];
-						$image= '<img height="30" width="30" src="data:image; base64,'.$row["image"].'" id="myimg">';
+						//$image= '<img height="30" width="30" src="data:image; base64,'.$row["image"].'" id="myimg">';
 						//$source="data:image; base64,". $row['c_image'];
-						$_SESSION['image']=$image;
+						//$_SESSION['image']=$image;
 						header("Location:/../Project/home.php");
 					}
 					else

@@ -31,7 +31,7 @@
 				$_SESSION['email']=$email;
 				$_SESSION['pwd']=$pwd;
 				$_SESSION['ph']=$ph;
-
+				$_SESSION['image']=null;
 
 				$query="SELECT * FROM USER WHERE email='$email';";
 				$result=mysqli_query($connection, $query);
