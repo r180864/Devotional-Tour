@@ -13,23 +13,23 @@
 	<div class="container my-5">
 		<h1 style="text-align: center; color:green;">Project- Web Technologies</h1>
 		<div class="row my-5">
-			<div class="col-4 m-auto shadow student rounded p-2">
+			<div class="col-lg-4 col-12m-auto shadow student rounded p-2">
 				<h3 style="text-align: center;">Student 1</h3>
 				<table>
-					<tr><td>Name: </td><th> Maddineni Anil Kumar</th></tr>
-					<tr><td>ID: </td><th>R180864</th></tr>
-					<tr><td>Section: </td><th>Sec-B</th></tr>
-					<tr><td>Year: </td><th>E2-CSE</th></tr>
+					<tr><td>Name</td><th>: Maddineni Anil Kumar</th></tr>
+					<tr><td>ID</td><th>: R180864</th></tr>
+					<tr><td>Section</td><th>: Sec-B</th></tr>
+					<tr><td>Year</td><th>: E2-CSE</th></tr>
 				</table>
 				
 			</div>
-			<div class="col-4 m-auto shadow student rounded p-2">
-				<h3 style="text-align: center;">Student 1</h3>
+			<div class="col-lg-4 col-12 m-auto shadow student rounded p-2">
+				<h3 style="text-align: center;">Student 2</h3>
 				<table>
-					<tr><td>Name: </td><th>N. Guna Sai Vamsidhar</th></tr>
-					<tr><td>ID: </td><th>R180039</th></tr>
-					<tr><td>Section: </td><th>Sec-B</th></tr>
-					<tr><td>Year: </td><th>E2-CSE</th></tr>
+					<tr><td>Name</td><th>: N. Guna Sai Vamsidhar</th></tr>
+					<tr><td>ID</td><th>: R180039</th></tr>
+					<tr><td>Section</td><th>: Sec-B</th></tr>
+					<tr><td>Year</td><th>: E2-CSE</th></tr>
 				</table>
 			</div>
 		</div>

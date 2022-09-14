@@ -27,7 +27,7 @@ if(!isset($_SESSION['email']))
 		<div class="row justify-content-center mb-5">
         	<?php require('C:\xampp\htdocs\Project\navbar.php');?>
         	
-			<marquee class="bg-danger p-3" width="50%" direction="right"><h3>Welcome <?php if(isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></h3></marquee>
+			<marquee class="bg-danger p-3 text-light" width="50%"><h3>Welcome <?php if(isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></h3></marquee>
 			
 			<?php require('C:\xampp\htdocs\Project\carousel.php'); ?>
 	

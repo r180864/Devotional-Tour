@@ -16,7 +16,7 @@
 		<div class="inner">
 			<img class="card-image-top" src="images/Tirumala1.jpg" alt="IMAGE" height="250">
 		</div>
-		<div class="card-body">
+		<div class="card-body text-center">
 			<h5 class="card-title">Tirumala</h5>
 			<p class="card-text">This is Tirumala, The Place Of Govinda</p>
 			<a href=".tirumala" class="btn btn-primary">VISIT</a>
@@ -29,7 +29,7 @@
 		<div class="inner">
 			<img class="card-image-top" src="images/Vrindavan1.jpg" alt="IMAGE" height="250">
 		</div>
-		<div class="card-body">
+		<div class="card-body text-center">
 			<h5 class="card-title">Vrindavan</h5>
 			<p class="card-text">This is Vrindavan, The Place Of Krishna</p>
 			<a href=".vrindavan" class="btn btn-primary">VISIT</a>
@@ -42,9 +42,9 @@
 		<div class="inner">
 			<img class="card-image-top" src="images/Puri1.jpg" alt="IMAGE" height="250">
 		</div>
-		<div class="card-body">
+		<div class="card-body text-center">
 			<h5 class="card-title">Puri</h5>
-			<p class="card-text">This is Vrindavan, The Place Of Krishna</p>
+			<p class="card-text">This is Puri, The Place Of Lord Jagannath</p>
 			<a href="#" class="btn btn-primary">VISIT</a>
 		</div>
 	</div>
@@ -55,9 +55,9 @@
 		<div class="inner">
 			<img class="card-image-top" src="images/Mayapur1.jpg" alt="IMAGE" height="250">
 		</div>
-		<div class="card-body">
+		<div class="card-body text-center">
 			<h5 class="card-title">Mayapur</h5>
-			<p class="card-text">This is Vrindavan, The Place Of Krishna</p>
+			<p class="card-text">This is Mayapur, The Place Of Lord Sri Krishna</p>
 			<a href="#" class="btn btn-primary">VISIT</a>
 		</div>
 	</div>
@@ -68,9 +68,9 @@
 		<div class="inner">
 			<img class="card-image-top" src="images/Badrinath1.jpg" alt="IMAGE" height="250">
 		</div>
-		<div class="card-body">
+		<div class="card-body text-center">
 			<h5 class="card-title">Badrinath</h5>
-			<p class="card-text">This is Vrindavan, The Place Of Krishna</p>
+			<p class="card-text">This is Badrinath, The Place Of Lord Badrinath</p>
 			<a href="#" class="btn btn-primary">VISIT</a>
 		</div>
 	</div>
@@ -81,7 +81,7 @@
 		<div class="inner">
 			<img class="card-image-top" src="images/Tiruvananthapuram1.jpg" alt="IMAGE" height="250">
 		</div>
-		<div class="card-body">
+		<div class="card-body text-center">
 			<h5 class="card-title">Tiruvananthapuram</h5>
 			<p class="card-text">This is Vrindavan, The Place Of Krishna</p>
 			<a href="#" class="btn btn-primary">VISIT</a>
@@ -94,9 +94,9 @@
 		<div class="inner">
 			<img class="card-image-top" src="images/Guruvayur1.jpg" alt="IMAGE" height="250">
 		</div>
-		<div class="card-body">
+		<div class="card-body text-center">
 			<h5 class="card-title">Guruvayur</h5>
-			<p class="card-text">This is Vrindavan, The Place Of Krishna</p>
+			<p class="card-text">This is Guruvayur, The Place Of Lord Krishna</p>
 			<a href="#" class="btn btn-primary">VISIT</a>
 		</div>
 	</div>
@@ -109,7 +109,7 @@
 		</div>
 		<div class="card-body">
 			<h5 class="card-title">Udipi</h5>
-			<p class="card-text">This is Vrindavan, The Place Of Krishna</p>
+			<p class="card-text">This is Udipi, The Place Of Bhagavan Krishna</p>
 			<a href="#" class="btn btn-primary">VISIT</a>
 		</div>
 	</div>
