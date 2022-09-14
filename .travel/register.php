@@ -10,6 +10,8 @@
 "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/../Project/css/mystyle.css">
+	<link rel="icon" type="x-icon/image" href="/../Project/images/logo.png">
 </head>
 <body>
 

@@ -30,3 +30,14 @@ html {
 #myprifile{
     border: 1;
 }
+#about{
+    background-image: url(/../Project/images/peacock.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+}
+.student{
+    border: 3px solid gray;
+    text-shadow: 2px;
+
+}

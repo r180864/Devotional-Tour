@@ -24,7 +24,7 @@ if(!isset($_SESSION['email']))
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row justify-content-center">
+		<div class="row justify-content-center mb-5">
         	<?php require('C:\xampp\htdocs\Project\navbar.php');?>
         	
 			<marquee class="bg-danger p-3" width="50%" direction="right"><h3>Welcome <?php if(isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></h3></marquee>

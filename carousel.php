@@ -1,24 +1,25 @@
 <?php
 	$place=$_SESSION['active'];
 ?>
-<div id="temple" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+<div id="temple" class="carousel slide carousel-fade" data-bs-ride="carousel">
 	<div class="carousel-inner shadow">
 		<div class="carousel-item active">
 			<img class="d-block w-100" src="/../Project/images/<?php echo $place; ?>1.jpg" height="800">
 			<div class="carousel-caption">
-				<p>This is Ayodhya Page</p>
+				<h1>Welcome</h1>
 			</div>
 		</div>
 		<div class="carousel-item">
 			<img class="d-block w-100" src="/../Project/images/<?php echo $place; ?>2.jpg" height="800">
 			<div class="carousel-caption">
-				<p class="text-secondary bg-warning">Sri Ram</p>
+				<h1 class="text-secondary">Welcome</h1>
+				
 			</div>
 		</div>
 		<div class="carousel-item">
 			<img class="d-block w-100" src="/../Project/images/<?php echo $place; ?>3.jpg" height="800">
 			<div class="carousel-caption">
-				<p class="text-secondary">Sri Ram</p>
+				<h1 >Welcome</h1>
 			</div>
 		</div>
 	</div>

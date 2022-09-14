@@ -88,31 +88,30 @@ function Update($name, $pwd, $ph, $image)
 					{
 						$source='/../Project/images/loginIcon.png';
 					}
-					echo "<img height='200' width='200' id='myimg' border='5' src='$source'";
+					echo "<img height='200' width='200' id='myimg' border='5' src='$source'>";
 				?>
+				<h1>This is Profile Page</h1>
+				<h2>Welcome Mr. <?php echo $_SESSION['name']; ?></h2>
+				<table>
+					<tr>
+						<th>Name: </th>
+						<td><?php echo $_SESSION['name']; ?></td>
+					</tr>
+					<tr>
+						<th>Email: </th>
+						<td><?php echo $_SESSION['email']; ?></td>
+					</tr>
+					<tr>
+						<td colspan="2"><button id="btn" class="btn btn-warning my-2">Update Profile</button></td>
+					</tr>
+				</table>
 			</div>
-			<h1>This is Profile Page</h1>
-			<h2>Welcome Mr. <?php echo $_SESSION['name']; ?></h2>
-			<table>
-				<tr>
-					<th>Name: </th>
-					<td><?php echo $_SESSION['name']; ?></td>
-				</tr>
-				<tr>
-					<th>Email: </th>
-					<td><?php echo $_SESSION['email']; ?></td>
-				</tr>
-				<tr>
-					<td colspan="2"><button id="btn" class="btn btn-warning my-2">Update Profile</button></td>
-				</tr>
-			</table>
-		</div>
-		<div class="col-4 ms-5 shadow" id="update">
-			<!--<form action="#" method="POST" enctype="multipart/form-data">
-				<input type="file" name="image">
-				<button type="submit" name="submit">Submit</button>
-			</form>-->
-			<form onsubmit="return validate()" action="#" method="POST" enctype="multipart/form-data" class="form-floating mx-lg-5">
+			<div class="col-4 ms-5 shadow" id="update">
+				<!--<form action="#" method="POST" enctype="multipart/form-data">
+					<input type="file" name="image">
+					<button type="submit" name="submit">Submit</button>
+				</form>-->
+				<form onsubmit="return validate()" action="#" method="POST" enctype="multipart/form-data" class="form-floating mx-lg-5">
 					<p class="text-danger text-center"><?php
 							if(isset($error))
 							{
@@ -147,7 +146,7 @@ function Update($name, $pwd, $ph, $image)
 					<button type="submit" name="submit" value="submit" class="btn btn-success">Update</button>
 					<a class="btn btn-danger ms-5" id="cancel">Cancel</a>
 				</form>
-
+			</div>
 		</div>
 	</div>
 </body>

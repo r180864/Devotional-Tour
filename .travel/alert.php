@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Alert</title>
+	<link rel="stylesheet" type="text/css" href="/../Project/css/mystyle.css">
+	<link rel="icon" type="x-icon/image" href="/../Project/images/logo.png">
 	<script type="text/javascript">
 			let ok=confirm("Please Login\n, to proceed further");
 			if(ok)

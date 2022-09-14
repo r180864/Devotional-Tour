@@ -8,7 +8,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="me-5">
-					<h1><i>Devotional</i> <b>AK</b></h1>
+					<a href="about.php" class=" btn text-dark"><h1><i>Devotional</i> <b>AK</b></h1></a>
 				</div>
 				<div class="collapse navbar-collapse bg-secondary mb-auto rounded" id="Menu" >
 					<ul class="navbar-nav ms-sm-auto">
